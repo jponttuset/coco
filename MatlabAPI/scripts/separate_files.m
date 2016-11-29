@@ -1,6 +1,9 @@
 
-addpath('/Users/jpont/Workspace/libs/coco/MatlabAPI')
-addpath(genpath('/Users/jpont/Workspace/bop/gt_wrappers'))
+%addpath('/Users/jpont/Workspace/libs/coco/MatlabAPI')
+addpath('/srv/glusterfs/jpont/dev/libs/coco/MatlabAPI')
+
+%addpath(genpath('/Users/jpont/Workspace/bop/gt_wrappers'))
+addpath(genpath('/srv/glusterfs/jpont/dev/bop/gt_wrappers/'))
 
 root_folder = '/srv/glusterfs/jpont/datasets/Pascal/proposals/';
 method = 'SharpMask-regions';
