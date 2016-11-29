@@ -6,6 +6,7 @@ addpath('/srv/glusterfs/jpont/dev/libs/coco/MatlabAPI')
 % addpath(genpath('/Users/jpont/Workspace/bop/gt_wrappers'))
 addpath(genpath('/srv/glusterfs/jpont/dev/bop/gt_wrappers/'))
 
+
 root_folder = ['/srv/glusterfs/jpont/datasets/' database '/proposals/'];
 % method = 'SharpMaskRegions';
 
@@ -14,6 +15,7 @@ if ~exist(res_folder,'dir')
     mkdir(res_folder);
 end
 
+% Get ids
 ids = db_ids(database,gt_set);
 
 files = dir(fullfile(root_folder, method_in, 'jsons', '*.json'));
@@ -35,8 +37,15 @@ for ii=1:length(files)
         assert(length(curr_prop)==1000)
         
         % Get the Pascal-style ID
-        curr_id = sprintf('%d', id_set(jj));
-        curr_id = [curr_id(1:4) '_' curr_id(5:end)];
+        
+        if strcmp(database,'Pascal')
+            curr_id = sprintf('%d', id_set(jj));
+            curr_id = [curr_id(1:4) '_' curr_id(5:end)];
+        elseif strcmp(database,'COCO')
+            curr_id = ['COCO_' gt_set '_' sprintf('%012d', id_set(jj))];
+        else
+            error('DB');
+        end
         assert(ismember(curr_id,ids));
         
         % Write per-image
