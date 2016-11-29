@@ -1,4 +1,4 @@
-function separate_files(database,gt_set,method)
+function separate_files(database,gt_set,method_out,method_in)
 
 % addpath('/Users/jpont/Workspace/libs/coco/MatlabAPI')
 addpath('/srv/glusterfs/jpont/dev/libs/coco/MatlabAPI')
@@ -9,14 +9,14 @@ addpath(genpath('/srv/glusterfs/jpont/dev/bop/gt_wrappers/'))
 root_folder = ['/srv/glusterfs/jpont/datasets/' database '/proposals/'];
 % method = 'SharpMaskRegions';
 
-res_folder = fullfile(root_folder,method);
+res_folder = fullfile(root_folder,method_out);
 if ~exist(res_folder,'dir')
     mkdir(res_folder);
 end
 
 ids = db_ids(database,gt_set);
 
-files = dir(fullfile(root_folder, [method 'Raw'], 'jsons', '*.json'));
+files = dir(fullfile(root_folder, method_in, 'jsons', '*.json'));
 
 for ii=1:length(files)
     
