@@ -5,17 +5,19 @@ type = {'segm','bbox','keypoints'}; type = type{1}; % specify type here
 fprintf('Running demo for *%s* results.\n\n',type);
 
 %% initialize COCO ground truth api
-dataDir='../'; prefix='instances'; dataType='val2014';
+dataDir='/Users/jpont/Workspace/gt_dbs/COCO'; prefix='instances'; dataType='val2014';
 if(strcmp(type,'keypoints')), prefix='person_keypoints'; end
 annFile=sprintf('%s/annotations/%s_%s.json',dataDir,prefix,dataType);
 cocoGt=CocoApi(annFile);
 
 %% initialize COCO detections api
+dataDir = '..';
 resFile='%s/results/%s_%s_fake%s100_results.json';
 resFile=sprintf(resFile,dataDir,prefix,dataType,type);
 cocoDt=cocoGt.loadRes(resFile);
 
 %% visialuze gt and dt side by side
+dataDir='/Users/jpont/Workspace/gt_dbs/COCO';
 imgIds=sort(cocoGt.getImgIds()); imgIds=imgIds(1:100);
 imgId = imgIds(randi(100)); img = cocoGt.loadImgs(imgId);
 I = imread(sprintf('%s/images/val2014/%s',dataDir,img.file_name));

@@ -1,9 +1,10 @@
 %% Demo for the CocoApi (see CocoApi.m)
+coco_root = '/Users/jpont/Workspace/gt_dbs/COCO';
 
 %% initialize COCO api (please specify dataType/annType below)
 annTypes = { 'instances', 'captions', 'person_keypoints' };
 dataType='val2014'; annType=annTypes{1}; % specify dataType/annType
-annFile=sprintf('../annotations/%s_%s.json',annType,dataType);
+annFile=sprintf('%s/annotations/%s_%s.json',coco_root,annType,dataType);
 coco=CocoApi(annFile);
 
 %% display COCO categories and supercategories
@@ -22,7 +23,7 @@ imgId = imgIds(randi(length(imgIds)));
 
 %% load and display image
 img = coco.loadImgs(imgId);
-I = imread(sprintf('../images/%s/%s',dataType,img.file_name));
+I = imread(sprintf('%s/images/%s/%s',coco_root,dataType,img.file_name));
 figure(1); imagesc(I); axis('image'); set(gca,'XTick',[],'YTick',[])
 
 %% load and display annotations
