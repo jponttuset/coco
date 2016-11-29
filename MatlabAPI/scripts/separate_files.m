@@ -50,7 +50,7 @@ for ii=1:length(files)
         
         % Write per-image
         file_out = fopen(fullfile(res_folder,[curr_id '.json']),'w');
-        fprintf(file_out,gason(curr_prop));
+        fprintf(file_out,'%s',gason(curr_prop));
         fclose(file_out);
     end
 end
