@@ -1,5 +1,17 @@
 function separate_files(database,gt_set,method_out,method_in)
 
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('Pascal','Main_val_2012','SharpMaskRegions','SharpMask-regions-val2012')"
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('Pascal','Main_val_2012','DeepMaskRegions','DeepMask-regions-val2012')"
+% 
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('COCO','val2014','SharpMaskRegions','SharpMaskRegionsRaw')"
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('COCO','val2014','DeepMaskRegions','DeepMaskRegionsRaw')"
+% 
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('Pascal','Main_train_2012','SharpMaskRegions','SharpMask-regions-train2012')"
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('Pascal','Main_test_2012','SharpMaskRegions','SharpMask-regions-test2012')"
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('Pascal','Main_train_2012','DeepMaskRegions','DeepMask-regions-train2012')"
+% qsub qsub-matlab.sh ~/dev/libs/coco/MatlabAPI/scripts "separate_files('Pascal','Main_test_2012','DeepMaskRegions','DeepMask-regions-test2012')"
+
+
 % addpath('/Users/jpont/Workspace/libs/coco/MatlabAPI')
 addpath('/srv/glusterfs/jpont/dev/libs/coco/MatlabAPI')
 
